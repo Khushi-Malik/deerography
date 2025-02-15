@@ -1,55 +1,58 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import json
 import os
 
 app = Flask(__name__)
-CORS(app)
 
-# Ensure JSON file exists
-JSON_FILE = os.path.join(os.path.dirname(__file__), "data", "data.json")
+# Enable CORS for all routes
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
+# Define path for the JSON database
+JSON_FILE = "backend/data/data.json"
+
+# Ensure the data directory exists
+os.makedirs(os.path.dirname(JSON_FILE), exist_ok=True)
+
+# Ensure the JSON file exists
 if not os.path.exists(JSON_FILE):
     with open(JSON_FILE, "w") as f:
         json.dump([], f)
 
-# Read JSON data safely
+# Function to read JSON data
 def read_json():
-    if not os.path.exists(JSON_FILE):
-        return []
-    with open(JSON_FILE, "r") as f:
-        try:
+    try:
+        with open(JSON_FILE, "r") as f:
             return json.load(f)
-        except json.JSONDecodeError:
-            return []
+    except (json.JSONDecodeError, FileNotFoundError):
+        return []  # Return an empty list if JSON is corrupted or missing
 
-# Write JSON data
+# Function to write JSON data
 def write_json(data):
     with open(JSON_FILE, "w") as f:
         json.dump(data, f, indent=4)
 
-# API to fetch JSON data
+@app.route("/")
+def home():
+    return "Flask backend is running!"
+
+# API route to fetch data
 @app.route("/api/data", methods=["GET"])
 def get_data():
     return jsonify(read_json())
 
-# API to add data to JSON
+# API route to add data
 @app.route("/api/data", methods=["POST"])
 def add_data():
-    data = request.json
-    if not data:
-        return jsonify({"error": "Invalid data"}), 400
+    try:
+        data = request.json
+        existing_data = read_json()
+        existing_data.append(data)
+        write_json(existing_data)
+        return jsonify({"message": "Data added successfully!", "data": data}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-    existing_data = read_json()
-    existing_data.append(data)
-    write_json(existing_data)
-
-    return jsonify({"message": "Data added successfully!"}), 201
-
-# Serve frontend (if using SSR)
-@app.route("/")
-def home():
-    return render_template("index.html")
-
+# Run the Flask app
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5000)  # Flask will run on port 5000
