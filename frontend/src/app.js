@@ -11,7 +11,7 @@ const App = () => {
 
     return (
         <div className="container">
-            <h1>React + Flask MVP</h1>
+            <h1>DeeroGraphy</h1>
             <button onClick={() => window.location.reload()}>Refresh Data</button>
             <ul>
                 {data.map((item, index) => (

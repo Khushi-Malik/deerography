@@ -9,3 +9,7 @@ async function fetchData() {
         list.appendChild(li);
     });
 }
+
+function loginPage() {
+    window.location.href = "login.html";
+}
