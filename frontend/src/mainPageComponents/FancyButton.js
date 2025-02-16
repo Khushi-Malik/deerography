@@ -12,7 +12,7 @@ const FancyButton = ({ label, onClick, targetpage,  style}) => {
         padding: "15px 30px",
         fontSize: "35px",
         fontWeight: "bold",
-        background: "linear-gradient(135deg,#638877,rgb(37, 58, 47))", // Sleek gradient
+        background: "linear-gradient(135deg,#638877,#253a2f)", // Sleek gradient
         color: "#fff",
         border: "none",
         borderRadius: "10px", // More rounded corners

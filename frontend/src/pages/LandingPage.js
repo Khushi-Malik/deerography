@@ -16,14 +16,14 @@ function LandingPage() {
                 width: "100%",
                 padding: "20px",
             }}>
-                <Link to="/">
+                <Link to="/newpage">
                 <RegularButton label="Profile"/>
                 </Link>
                 <Link to="/">
                 {/* DAILY QUEST BUTTON HEREEEEEEEEEEEEEEEEEEEE*/}
                 <FancyButton label="Daily Quest" targetpage="test.html" />
                 </Link>
-                <Link to="/newPage">
+                <Link to="/">
                 <RegularButton label="Logout" />
                 </Link>
             </div>
