@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
 from flask_cors import CORS
 import json
 import os
@@ -6,7 +6,8 @@ import os
 app = Flask(__name__)
 
 # Enable CORS for all routes
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}}, supports_credentials=True)
+
 
 # Define path for the JSON database
 JSON_FILE = "backend/data/data.json"
@@ -52,6 +53,64 @@ def add_data():
         return jsonify({"message": "Data added successfully!", "data": data}), 201
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route('/api/authentication/validateAccount', methods=['POST'])
+def validate_account():
+    data = request.get_json()
+    email = data.get("email")
+    username = data.get("username")
+    password = data.get("password")
+
+    with open('data/users.json', 'r') as users:
+        users_info = json.load(users)
+
+    if username in users_info.keys():
+        user_info = users_info.get(username)
+
+        if user_info.get("password") != password or user_info.get("email") != email:
+            return jsonify({"message": "Wrong information"}), 401
+
+        else:
+            resp = make_response(jsonify({"message": "Login successful!"}))
+
+            resp.set_cookie('loggedin', 'true', samesite='Lax')
+            resp.set_cookie('username', username, samesite='Lax')
+
+            print("Cookies set")
+            return resp, 200
+
+    return jsonify({"message": "User not found"}), 404
+
+# New endpoint for user registration
+@app.route('/api/authentication/register', methods=['POST'])
+def register_account():
+    data = request.get_json()
+    email = data.get("email")
+    username = data.get("username")
+    password = data.get("password")
+
+    with open('data/users.json', 'r') as users:
+        users_info = json.load(users)
+
+    if username in users_info.keys():
+        return jsonify({"message": "User exists"}), 400
+
+    #username, email, password, country
+    curr_object = {"email": email, "username": username, "password":password}
+    print(curr_object.keys())
+    users_info.update({username: curr_object})
+
+    with open('data/users.json', 'w') as users_file:
+        json.dump(users_info, users_file, indent=4)
+
+    # Return a success response after adding the new user
+    resp = make_response(jsonify({"message": "Successful registration!"}))
+
+    resp.set_cookie('loggedin', 'true', samesite='Lax')
+    resp.set_cookie('username', username, samesite='Lax')
+
+    print("Cookies set")
+    return resp, 200
 
 # Run the Flask app
 if __name__ == "__main__":
