@@ -207,7 +207,8 @@ def update_stats():
 
     if user in users_info.keys():
         user_info = users_info.get(user);
-        user_info.get("values")[continent] = user_info.get("values")[continent] + 1;
+        if user_info.get("values")[continent] < 100:
+            user_info.get("values")[continent] = user_info.get("values")[continent] + 1;
         with open('data/users.json', 'w') as users_file:
             json.dump(users_info, users_file, indent=4)
         return jsonify({"values" : "success"}), 200
