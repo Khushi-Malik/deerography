@@ -3,6 +3,7 @@ import './App.css';
 import NewPage from './NewPage'; 
 import Home from './pages/Home'; // Import Home
 import LandingPage from './pages/LandingPage';
+import DailyQuestButton from './mainPageComponents/DailyQuestButton';
 
 function App() {
 
@@ -13,10 +14,6 @@ function App() {
         {/* Navigation Bar (Visible on All Pages) */}
         <nav>
           <ul>
-              <Link to="/">Home</Link>
-              <Link to="/newPage">
-                <button>Go to New Page</button>
-              </Link>
           </ul>
         </nav>
 
