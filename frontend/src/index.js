@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Friends from "./Friends";
 import ConnectionApp from "./connectionsComponents/connectionsApp/ConnectionsApp";
 import "./connectionsReset.css";
 import "./connectionsStyles.css";
@@ -11,13 +10,7 @@ import "./tailwind.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-if (window.location.pathname === "/friends.html") {
-  root.render(
-    <React.StrictMode>
-      <Friends /> {/* Renders NewPage when the path is /newPage.html */}
-    </React.StrictMode>
-  );
-} else if (window.location.pathname === "/connections.html") {
+if (window.location.pathname === "/connections.html") {
   root.render(
     <React.StrictMode>
       <ConnectionApp /> {/* Correctly renders ConnectionApp for /connections.html */}

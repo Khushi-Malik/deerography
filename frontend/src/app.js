@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import Friends from './Friends'; 
 import Home from './pages/Home'; // Import Home
 import LandingPage from './pages/LandingPage';
 import ConnectionApp from "./connectionsComponents/connectionsApp/ConnectionsApp";
@@ -19,11 +18,6 @@ function App() {
             <Link to="/">
             <button>Home</button>
             </Link>
-            <Link to="/friends">
-            </Link>
-              <Link to="/friends">
-                <button>Friends</button>
-              </Link>
               <Link to="/login">
                 <button>Login</button>
               </Link>
@@ -36,7 +30,6 @@ function App() {
         {/* Page Routing - Each Page Loads Separately */}
         <Routes>
           <Route path="/" element={<Home />} />  
-          <Route path="/friends" element={<Friends />} />
           <Route path="/landing" element={<LandingPage />} /> 
           <Route path="/connections" element={<ConnectionApp />} /> 
           <Route path="/login" element={<Login />} /> 
