@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, make_response
 from flask_cors import CORS
 import json
 import os
+from google import genai
 
 app = Flask(__name__)
 
@@ -111,6 +112,44 @@ def register_account():
 
     print("Cookies set")
     return resp, 200
+
+# New endpoint for getting connections answers
+@app.route('/api/connections', methods=['POST'])
+def get_connections_puzzle():
+    print("a")
+    data = request.get_json()
+    print("b")
+    region = data.get("region")
+    print("c")
+
+    prompt = "You are creating answers for a puzzle game. Given a location, " + \
+             "users are given categories like foods, events, landmarks, etc. "  + \
+             "and they must group words that fit these categories based" + \
+             "on the category they fit. Give a total of cummulative total of " + \
+             "5 terms (i.e. foods, events, landmarks, etc.) , each with 2-4" + \
+             "associated answers that fit given the region, totalling 16. " + \
+             "The associated region is " + str(region) + ". Choose somewhat " + \
+             "obscure answers that don't give away the answer (i.e. Toronto Hot" + \
+             " Dogs when the region is Toronto, or Sugarloaf Mountain when the" + \
+             "category is landmarks), Give the output as " + \
+             "a JSON object, where the categories are the keys while the " + \
+             "values associated with those keys are a List of Strings."
+
+    client = genai.Client(api_key="AIzaSyDOHewNpknqFyupi7tUywC4mCDyG4OaZT0")
+    #pip install google-genai
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt,
+    )
+    print(str(type(response)))
+
+    # If the content part is wrapped in triple-backticks (i.e., Markdown/JSON format), you can clean it up:
+    # Remove backticks and extract the content
+
+    cleaned_response = response.text.replace("json\n", "").replace("\n", "").replace("```", "").strip()
+    print(str(cleaned_response))
+
+    return jsonify({"message" : str(response.text)}), 200
 
 # Run the Flask app
 if __name__ == "__main__":
