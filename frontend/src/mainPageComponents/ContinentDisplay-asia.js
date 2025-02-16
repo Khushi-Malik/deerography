@@ -14,6 +14,8 @@ const ContinentMapA = () => {
           wheelX: "none",  // Disable zooming with mouse wheel horizontally
           wheelY: "none",  // Disable zooming with mouse wheel vertically
           pinchZoom: false, // Disable pinch-to-zoom on touch devices
+          panX: "none",  
+          panY: "none",
         })
       );
 
