@@ -20,10 +20,9 @@ function App() {
             <button>Home</button>
             </Link>
             <Link to="/friends">
-</Link>
- <Link to="/">Home</Link>
+            </Link>
               <Link to="/friends">
-                <button>Go to Friends</button>
+                <button>Friends</button>
               </Link>
               <Link to="/login">
                 <button>Login</button>
