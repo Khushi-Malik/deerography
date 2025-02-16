@@ -1,7 +1,7 @@
 // src/NewPage.js
 import React from 'react';
 
-function NewPage() {
+function Friends() {
   return (
     <div>
       <h1>Welcome to the React-Powered New Page!</h1>
@@ -11,4 +11,4 @@ function NewPage() {
   );
 }
 
-export default NewPage;
+export default Friends;

@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #e9ebe1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -49,3 +49,67 @@ body, html {
   width: 100%;
   max-width: 100%;
 }
+
+/* Navigation Bar */
+nav {
+  background-color: #fff; 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #5a5a5a;
+  font-size: 16px;
+}
+
+nav button {
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background-color: #e2e6ea;
+}
+
+/* Daily Quest Ribbon */
+.daily-quest-ribbon {
+  background-color: #e9ebe1; /* Beige color */
+  padding: 4px; /* Even smaller padding */
+  text-align: center;
+  border-radius: 4px;
+  max-width: 180px; /* Narrower width */
+  margin: 5px auto; /* Less space around it */
+}
+
+/* Button inside the ribbon */
+.daily-quest-ribbon button {
+  background-color: #e9ebe1; /* Match ribbon */
+  color: #5a5a5a; /* Darker text for contrast */
+  font-size: 14px; /* Smaller font */
+  padding: 4px 10px; /* Even smaller padding */
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.daily-quest-ribbon button:hover {
+  background-color: #dee6be; /* Slightly darker beige on hover */
+}
+
+

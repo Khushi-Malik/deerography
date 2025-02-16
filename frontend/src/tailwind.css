@@ -1,0 +1,3 @@
+@tailwind base;
+@tailwind components; /** idk what is happenign here could be an error*/
+@tailwind utilities;
