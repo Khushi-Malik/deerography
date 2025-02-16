@@ -98,7 +98,11 @@ def register_account():
 
     #username, email, password, country
     curr_object = {"email": email, "username": username, "password":password}
-    print(curr_object.keys())
+    curr_values = {};
+    print("mid")
+    for continent in ["North America", "South America", "Europe", "Asia", "Africa", "Oceania"]:
+        curr_values.update({continent:0});
+    curr_object["values"] = curr_values
     users_info.update({username: curr_object})
 
     with open('data/users.json', 'w') as users_file:
@@ -174,6 +178,22 @@ def get_connections_puzzle():
 
 
     return jsonify({"message" : str(cleaned_response)}), 200
+
+# New endpoint for user registration
+@app.route('/api/getStats', methods=['POST'])
+def get_stats():
+    data = request.get_json()
+    user = data.get("user")
+
+    with open('data/users.json', 'r') as users:
+        users_info = json.load(users)
+
+    if user in users_info.keys():
+        user_info = users_info.get(user);
+        print(user)
+        return jsonify({"values" : user_info.get("values")}), 200
+
+    return jsonify({"message" : "not real user"}), 400
 
 # Run the Flask app
 if __name__ == "__main__":

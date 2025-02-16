@@ -4,7 +4,7 @@ import NewPage from '../NewPage';
 import Home from './Home';
 import FancyButton from '../mainPageComponents/FancyButton';
 import RegularButton from '../mainPageComponents/RegularButton';
-import MapChart from '../mainPageComponents/Map';
+import MapChart from '../mainPageComponents/UserMap';
 
 function LandingPage() {
     return (
