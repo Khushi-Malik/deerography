@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import '../App.css';
-import Friends from '../Friends';
+import Friend from '../Friends';
 import Home from './Home';
 import FancyButton from '../mainPageComponents/FancyButton';
 import RegularButton from '../mainPageComponents/RegularButton';
@@ -49,5 +49,6 @@ function LandingPage() {
         </div>
     );
 }
-
-export default LandingPage;
+  
+  export default LandingPage;
+  

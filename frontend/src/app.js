@@ -8,8 +8,10 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 function App() {
+
   return (
     <Router>
+      
       <div className="App">
         {/* Navigation Bar (Visible on All Pages) */}
         <nav>
