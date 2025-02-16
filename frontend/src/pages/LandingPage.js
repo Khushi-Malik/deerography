@@ -5,6 +5,7 @@ import Home from './Home';
 import FancyButton from '../mainPageComponents/FancyButton';
 import RegularButton from '../mainPageComponents/RegularButton';
 import MapChart from '../mainPageComponents/UserMap';
+import DailyQuestButton from '../mainPageComponents/DailyQuestButton'; // Import DailyQuestButton
 
 function LandingPage() {
     return (
@@ -17,18 +18,26 @@ function LandingPage() {
                 padding: "20px",
             }}>
                 <Link to="/newpage">
-                <RegularButton label="Profile"/>
+                    <RegularButton label="Profile"/>
                 </Link>
+                <div style={{
+                    width: "100%",
+                    backgroundColor: "#e9ebe1", 
+                    padding: "0",
+                }}>
+                    <Link to="/connections">
+                        <DailyQuestButton 
+                            label="Daily Quest" 
+                            targetpage="/connections" 
+                        />
+                    </Link>
+                </div>
                 <Link to="/">
-                {/* DAILY QUEST BUTTON HEREEEEEEEEEEEEEEEEEEEE*/}
-                <FancyButton label="Daily Quest" targetpage="test.html" />
-                </Link>
-                <Link to="/">
-                <RegularButton label="Logout" />
+                    <RegularButton label="Logout" />
                 </Link>
             </div>
             <div style={{ backgroundColor: "#282c34", padding: "20px" }}>
-                <p style ={{
+                <p style={{
                     fontSize: "20px",
                     fontWeight: "200",
                     fontFamily: "monospace",
@@ -39,8 +48,6 @@ function LandingPage() {
             </div>
         </div>
     );
-  }
-  
-  
-  export default LandingPage;
-  
+}
+
+export default LandingPage;

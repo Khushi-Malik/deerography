@@ -4,7 +4,6 @@ import Friends from './Friends';
 import Home from './pages/Home'; // Import Home
 import LandingPage from './pages/LandingPage';
 import ConnectionApp from "./connectionsComponents/connectionsApp/ConnectionsApp";
-import DailyQuestButton from './mainPageComponents/DailyQuestButton';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
