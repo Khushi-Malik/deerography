@@ -21,13 +21,13 @@ function App() {
             </Link>
             <Link to="/friends">
               <button>Friends</button>
-            </Link>
-            <Link to="/login">
-              <button>Login</button>
-            </Link>
-            <Link to="/signup">
-              <button>Signup</button>
-            </Link>
+              </Link>
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
+              <Link to="/signup">
+                <button>Signup</button>
+              </Link>
           </ul>
         </nav>
 
