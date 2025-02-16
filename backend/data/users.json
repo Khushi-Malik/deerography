@@ -1,0 +1,18 @@
+{
+    "test_name": {
+        "username": "test_name",
+        "password": "test_password",
+        "country": "Canada",
+        "email": "test@email.com"
+    },
+    "test_name2": {
+        "email": "test@email.com2",
+        "username": "test_name2",
+        "password": "test_password2"
+    },
+    "1": {
+        "email": "1@1",
+        "username": "1",
+        "password": "1"
+    }
+}
