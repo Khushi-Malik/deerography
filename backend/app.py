@@ -116,24 +116,42 @@ def register_account():
 # New endpoint for getting connections answers
 @app.route('/api/connections', methods=['POST'])
 def get_connections_puzzle():
-    print("a")
     data = request.get_json()
-    print("b")
     region = data.get("region")
-    print("c")
 
     prompt = "You are creating answers for a puzzle game. Given a location, " + \
              "users are given categories like foods, events, landmarks, etc. "  + \
              "and they must group words that fit these categories based" + \
              "on the category they fit. Give a total of cummulative total of " + \
-             "5 terms (i.e. foods, events, landmarks, etc.) , each with 2-4" + \
+             "4 terms (i.e. foods, events, landmarks, etc.) , each with 4" + \
              "associated answers that fit given the region, totalling 16. " + \
-             "The associated region is " + str(region) + ". Choose somewhat " + \
+             "The associated region is " + str(region) + ". Difficulties are arbibtrarily distributed uniquely, from 1-4. Choose somewhat " + \
              "obscure answers that don't give away the answer (i.e. Toronto Hot" + \
              " Dogs when the region is Toronto, or Sugarloaf Mountain when the" + \
-             "category is landmarks), Give the output as " + \
-             "a JSON object, where the categories are the keys while the " + \
-             "values associated with those keys are a List of Strings."
+             "category is landmarks). Do not include '[' or ']' at the beginning/end. Give the output in a format similar to the following ignoring spacing and with no other text:" + \
+             """
+    {
+        category: "Black Women Authors",
+        words: ["Toni", "Paule", "Zora", "Alice"],
+        difficulty: 1,
+    },
+    {
+        category: "Michael ____",
+        words: ["Jackson", "Jordan", "Johnson", "Tyson"],
+        difficulty: 2,
+    },
+    {
+        category: "Black Greek Sorority Symbols",
+        words: ["Poodle", "Dove", "Ivy", "Pyramid"],
+        difficulty: 3,
+    },
+
+    {
+        category: "Boyz II Men",
+        words: ["Michael", "Nathan", "Wanyá", "Shawn"],
+        difficulty: 4,
+    } """
+
 
     client = genai.Client(api_key="AIzaSyDOHewNpknqFyupi7tUywC4mCDyG4OaZT0")
     #pip install google-genai
@@ -147,9 +165,15 @@ def get_connections_puzzle():
     # Remove backticks and extract the content
 
     cleaned_response = response.text.replace("json\n", "").replace("\n", "").replace("```", "").strip()
-    print(str(cleaned_response))
 
-    return jsonify({"message" : str(response.text)}), 200
+    with open("../frontend/src/lib/data.js", "w") as f:
+        f.write("export const CONNECTION_GAMES = [[")
+        f.write(cleaned_response)
+        f.write("]];")
+
+
+
+    return jsonify({"message" : str(cleaned_response)}), 200
 
 # Run the Flask app
 if __name__ == "__main__":
