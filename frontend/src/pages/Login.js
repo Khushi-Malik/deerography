@@ -36,7 +36,7 @@ const Login = () => {
         alert('Bad!')
       } else {
         alert('Success!');
-	window.location.href = '/';
+	window.location.href = '/landing';
       }
     };
 

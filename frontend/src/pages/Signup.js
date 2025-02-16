@@ -1,12 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [continent, setContinent] = useState('North America'); // Set default continent
   const [error, setError] = useState('');
+
+  const continents = [
+    'Africa',
+    'Asia',
+    'Europe',
+    'North America',
+    'South America',
+    'Australia',
+    'Antarctica',
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,29 +25,29 @@ const Signup = () => {
       alert('Please fill in either username or email.');
       return;
     }
-    const response = await fetch("http://localhost:5000//api/authentication/register", {
+    const response = await fetch("http://localhost:5000/api/authentication/register", {
        method: "post",
        headers: {
          'Content-Type': 'application/json'
        },
-
        body: JSON.stringify({
          email: email,
          username: username,
-         password: password
+         password: password,
+         continent: continent,  // Include selected continent in the request
        }),
        credentials: 'include',
      });
-  
+
       if (response.status == 404) {
         alert('User does not exist.');
       } else if (response.status == 401) {
         alert('Wrong password/username.');
       } else if (!response.ok){
-        alert('Bad!')
+        alert('Bad!');
       } else {
         alert('Success!');
-	window.location.href = '/';
+        window.location.href = '/';
       }
     };
 
@@ -57,7 +67,7 @@ const Signup = () => {
         <div>
           <label htmlFor="username">Username</label>
           <input
-            type="username"
+            type="text"  // Corrected to 'text' instead of 'username'
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -72,6 +82,19 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+        </div>
+        <div>
+          <label htmlFor="continent">Continent</label>
+          <select
+            id="continent"
+            value={continent}  // Default value is set to "North America"
+            onChange={(e) => setContinent(e.target.value)}
+          >
+            <option value="">Select Continent</option>
+            {continents.map((cont, index) => (
+              <option key={index} value={cont}>{cont}</option>
+            ))}
+          </select>
         </div>
         {error && <p className="error">{error}</p>}
         <button type="submit">Signup</button>
