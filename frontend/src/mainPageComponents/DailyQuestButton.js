@@ -10,13 +10,12 @@ const DailyQuestButton = ({ label, onClick, targetpage,  style}) => {
       onClick={handleClick} 
       style={{
         padding: "10px 20px",
-        fontSize: "16px",
+        fontSize: "50px",
         backgroundColor: "#007bff",
         color: "#fff",
         border: "none",
         borderRadius: "5px",
         cursor: "pointer",
-        ...style  // Allow custom styles
       }}
     >
       {label}

@@ -14,8 +14,8 @@ const MapChart = () => {
       am5map.MapChart.new(root, {
         panX: "none",
         panY: "none",  // Also prevent vertical panning if needed
-        wheelX: "translateX", // Disable zooming with mouse wheel (horizontal)
-        wheelY: "translateY", // Disable zooming with mouse wheel (vertical)
+        wheelX: "none", // Disable zooming with mouse wheel (horizontal)
+        wheelY: "none", // Disable zooming with mouse wheel (vertical)
         pinchZoom: false, // Disable pinch-to-zoom on touch devices
         projection: am5map.geoNaturalEarth1()
       })
@@ -122,7 +122,7 @@ const MapChart = () => {
     };
   }, []);
 
-  return <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>;
+  return <div id="chartdiv" style={{ width: "100vw", height: "50vw" }}></div>;
 };
 
 export default MapChart;
