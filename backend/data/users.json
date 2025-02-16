@@ -3,16 +3,27 @@
         "username": "test_name",
         "password": "test_password",
         "country": "Canada",
-        "email": "test@email.com"
-    },
-    "test_name2": {
-        "email": "test@email.com2",
-        "username": "test_name2",
-        "password": "test_password2"
+        "email": "test@email.com",
+        "values": {
+            "North America": 0,
+            "South America": 0,
+            "Europe": 0,
+            "Asia": 0,
+            "Africa": 0,
+            "Oceania": 0
+        }
     },
     "1": {
         "email": "1@1",
         "username": "1",
-        "password": "1"
+        "password": "1",
+        "values": {
+            "North America": 10,
+            "South America": 20,
+            "Europe": 31,
+            "Asia": 40,
+            "Africa": 60,
+            "Oceania": 100
+        }
     }
 }

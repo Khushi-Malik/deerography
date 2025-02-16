@@ -179,7 +179,7 @@ def get_connections_puzzle():
 
     return jsonify({"message" : str(cleaned_response)}), 200
 
-# New endpoint for user registration
+# New endpoint for getting
 @app.route('/api/getStats', methods=['POST'])
 def get_stats():
     data = request.get_json()
@@ -192,6 +192,25 @@ def get_stats():
         user_info = users_info.get(user);
         print(user)
         return jsonify({"values" : user_info.get("values")}), 200
+
+    return jsonify({"message" : "not real user"}), 400
+
+# New endpoint for update
+@app.route('/api/updateStats', methods=['POST'])
+def update_stats():
+    data = request.get_json()
+    user = data.get("user")
+    continent = data.get("continent")
+
+    with open('data/users.json', 'r') as users:
+        users_info = json.load(users)
+
+    if user in users_info.keys():
+        user_info = users_info.get(user);
+        user_info.get("values")[continent] = user_info.get("values")[continent] + 1;
+        with open('data/users.json', 'w') as users_file:
+            json.dump(users_info, users_file, indent=4)
+        return jsonify({"values" : "success"}), 200
 
     return jsonify({"message" : "not real user"}), 400
 
