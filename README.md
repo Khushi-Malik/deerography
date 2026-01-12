@@ -46,7 +46,7 @@ cd backend
 
 2. Install Python dependencies:
 ```bash
-pip install flask flask-cors google-generativeai
+pip install flask flask-cors google-genai
 ```
 
 3. Create a `.env` file or update the API key in `app.py`:
