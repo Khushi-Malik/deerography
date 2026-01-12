@@ -4,12 +4,36 @@
         "username": "test",
         "password": "test_password",
         "values": {
+            "North America": 1,
+            "South America": 0,
+            "Europe": 0,
+            "Asia": 0,
+            "Africa": 0,
+            "Oceania": 0
+        },
+        "lastLogin": "2026-01-11T21:33:31.909414",
+        "totalPuzzles": 1,
+        "achievements": [],
+        "streak": 1,
+        "lastPuzzleDate": "2026-01-11"
+    },
+    "new": {
+        "email": "new@gmail.com",
+        "username": "new",
+        "password": "new_password",
+        "values": {
             "North America": 0,
             "South America": 0,
             "Europe": 0,
             "Asia": 0,
             "Africa": 0,
             "Oceania": 0
-        }
+        },
+        "totalPuzzles": 0,
+        "achievements": [],
+        "joinDate": "2026-01-11T21:51:47.360681",
+        "lastLogin": "2026-01-11T21:51:47.360697",
+        "streak": 0,
+        "lastPuzzleDate": null
     }
 }

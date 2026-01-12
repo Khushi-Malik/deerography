@@ -1,0 +1,146 @@
+.connections-app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e9ebe1 0%, #dee6be 100%);
+  padding: 20px;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  gap: 20px;
+}
+
+.loading-container p {
+  font-size: 18px;
+  color: #393b35;
+  font-weight: 600;
+}
+
+.puzzle-controls {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  flex: 1;
+  min-width: 180px;
+}
+
+.control-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #393b35;
+  font-size: 14px;
+}
+
+.control-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-group select:focus {
+  outline: none;
+  border-color: #638877;
+}
+
+.generate-btn {
+  background: linear-gradient(135deg, #638877, #253a2f);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 136, 119, 0.3);
+  white-space: nowrap;
+}
+
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 136, 119, 0.4);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .puzzle-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .control-group {
+    width: 100%;
+  }
+
+  .generate-btn {
+    width: 100%;
+  }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px;
+  text-align: center;
+}
+
+.error-container h2 {
+  font-size: 48px;
+  margin: 0 0 20px 0;
+  color: #393b35;
+}
+
+.error-container p {
+  font-size: 18px;
+  color: #6c757d;
+  margin: 0 0 30px 0;
+}
+
+.retry-btn {
+  background: linear-gradient(135deg, #638877, #253a2f);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 136, 119, 0.3);
+}
+
+.retry-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 136, 119, 0.4);
+}
+
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}

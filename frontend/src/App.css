@@ -113,3 +113,38 @@ nav button:hover {
 }
 
 
+.nav-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.nav-button.primary {
+  background-color: #e9ebe1;
+  color: #638877;
+}
+
+.nav-button.primary:hover {
+  background-color: #dee6be;
+}
+
+.nav-button.logout {
+  background-color: rgba(220, 53, 69, 0.8);
+}
+
+.nav-button.logout:hover {
+  background-color: rgba(220, 53, 69, 1);
+}
+

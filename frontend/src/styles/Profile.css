@@ -1,0 +1,264 @@
+.profile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #e9ebe1 0%, #dee6be 100%);
+}
+
+.profile-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 20px;
+}
+
+.profile-header {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #638877, #253a2f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.avatar-text {
+  font-size: 48px;
+  color: white;
+  font-weight: bold;
+}
+
+.profile-info h1 {
+  margin: 0 0 10px 0;
+  color: #393b35;
+  font-size: 36px;
+}
+
+.profile-email {
+  color: #6c757d;
+  margin: 0 0 15px 0;
+  font-size: 16px;
+}
+
+.profile-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: #e9ebe1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #638877;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.profile-section {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section h2 {
+  margin: 0 0 20px 0;
+  color: #393b35;
+  font-size: 24px;
+}
+
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-row span {
+  color: #6c757d;
+}
+
+.stat-row strong {
+  color: #638877;
+  font-size: 18px;
+}
+
+.achievements-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.achievement-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateX(5px);
+}
+
+.achievement-icon {
+  font-size: 36px;
+  min-width: 50px;
+}
+
+.achievement-info h4 {
+  margin: 0 0 5px 0;
+  color: #393b35;
+}
+
+.achievement-info p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.no-achievements {
+  text-align: center;
+  color: #6c757d;
+  padding: 20px;
+}
+
+.edit-button {
+  background: #638877;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+  background: #253a2f;
+  transform: translateY(-2px);
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.password-form label {
+  font-weight: 600;
+  color: #393b35;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.password-form input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.password-form input:focus {
+  outline: none;
+  border-color: #638877;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-button, .cancel-button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-button {
+  background: #638877;
+  color: white;
+}
+
+.save-button:hover {
+  background: #253a2f;
+}
+
+.cancel-button {
+  background: #e0e0e0;
+  color: #393b35;
+}
+
+.cancel-button:hover {
+  background: #d0d0d0;
+}
+
+.success-msg {
+  color: #28a745;
+  background: #d4edda;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #c3e6cb;
+}
+
+.error-msg {
+  color: #dc3545;
+  background: #f8d7da;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
