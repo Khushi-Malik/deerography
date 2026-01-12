@@ -135,8 +135,8 @@ async function getCookie() {
   var cookiestring = RegExp(cookiename + "=[^;]+").exec(document.cookie);
   let cookie = decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
 
-  const response = await fetch("http://localhost:5000/api/getStats", {
-    method: "post",
+  const response = await fetch("http://localhost:5001/api/getStats", {
+    method: "POST",
     headers: {
       'Content-Type': 'application/json'
     },

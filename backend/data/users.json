@@ -1,9 +1,8 @@
 {
-    "test_name": {
-        "username": "test_name",
-        "password": "test_password",
-        "country": "Canada",
+    "test": {
         "email": "test@email.com",
+        "username": "test",
+        "password": "test_password",
         "values": {
             "North America": 0,
             "South America": 0,
@@ -11,19 +10,6 @@
             "Asia": 0,
             "Africa": 0,
             "Oceania": 0
-        }
-    },
-    "1": {
-        "email": "1@1",
-        "username": "1",
-        "password": "1",
-        "values": {
-            "North America": 10,
-            "South America": 20,
-            "Europe": 31,
-            "Asia": 40,
-            "Africa": 60,
-            "Oceania": 100
         }
     }
 }

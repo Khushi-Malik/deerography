@@ -25,8 +25,8 @@ const Signup = () => {
       alert('Please fill in either username or email.');
       return;
     }
-    const response = await fetch("http://localhost:5000/api/authentication/register", {
-       method: "post",
+    const response = await fetch("http://localhost:5001/api/authentication/register", {
+       method: "POST",
        headers: {
          'Content-Type': 'application/json'
        },

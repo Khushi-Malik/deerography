@@ -60,7 +60,7 @@ client = genai.Client(api_key="YOUR_API_KEY_HERE")
 python app.py
 ```
 
-The backend will run on `http://localhost:5000`
+The backend will run on `http://localhost:5001`
 
 ### Frontend Setup
 
@@ -136,13 +136,13 @@ This project uses the [React Connections Game](https://github.com/and-computers/
 ## Configuration
 
 ### Backend Configuration
-- **Port**: 5000 (default Flask port)
+- **Port**: 5001 (default Flask port)
 - **CORS**: Configured for `http://localhost:3000`
 - **Data Storage**: JSON files in `backend/data/`
 
 ### Frontend Configuration
 - **Port**: 3000 (default React port)
-- **API Base URL**: `http://localhost:5000`
+- **API Base URL**: `http://localhost:5001`
 
 ## Development Notes
 

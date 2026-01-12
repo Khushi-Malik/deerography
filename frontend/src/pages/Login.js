@@ -14,8 +14,8 @@ const Login = () => {
       alert('Please fill in either username or email.');
       return;
     }
-    const response = await fetch("http://localhost:5000//api/authentication/validateAccount", {
-       method: "post",
+    const response = await fetch("http://localhost:5001/api/authentication/validateAccount", {
+       method: "POST",
        headers: {
          'Content-Type': 'application/json'
        },
