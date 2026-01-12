@@ -46,13 +46,13 @@ cd backend
 
 2. Install Python dependencies:
 ```bash
-pip install flask flask-cors google-genai
+pip install flask flask-cors google-genai load_dotenv
 ```
 
-3. Create a `.env` file or update the API key in `app.py`:
+3. Create a `.env` file and update the API key in `app.py`:
 ```python
 # Replace with your actual Gemini API key
-client = genai.Client(api_key="YOUR_API_KEY_HERE")
+client = genai.Client(api_key="GEMINI_API_KEY")
 ```
 
 4. Run the Flask server:
