@@ -14,20 +14,20 @@ const MapChart = () => {
     { title: "Africa", latitude: 5.081385, longitude: 21.621094, value: 0 },
     { title: "Oceania", latitude: -25, longitude: 134.5, value: 0 }
   ]);
-  const [values, setValues] = useState(null);  // This stores the values after fetching
-  const [isLoading, setIsLoading] = useState(true);  // Track loading state
+  const [values, setValues] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       let fetchedValues = await getCookie();
-      setValues(fetchedValues);  // Set the fetched values
-      setIsLoading(false);  // Set loading to false after data is fetched
+      setValues(fetchedValues);
+      setIsLoading(false);
     };
     fetchData();
   }, []);
 
   useEffect(() => {
-    if (values && !isLoading) {  // Only initialize the chart once values are loaded
+    if (values && !isLoading) {
       let root = am5.Root.new("chartdiv");
       root.setThemes([am5themes_Animated.new(root)]);
 
@@ -38,7 +38,11 @@ const MapChart = () => {
           wheelX: "none",
           wheelY: "none",
           pinchZoom: false,
-          projection: am5map.geoNaturalEarth1()
+          projection: am5map.geoMercator(),
+          paddingTop: 20,
+          paddingBottom: 20,
+          paddingLeft: 20,
+          paddingRight: 20
         })
       );
 
@@ -46,39 +50,41 @@ const MapChart = () => {
         am5map.MapPolygonSeries.new(root, {
           geoJSON: am5geodata_continentsLow,
           exclude: ["antarctica"],
-          fill: am5.color(0xbbbbbb)
+          fill: am5.color(0xE8E6E0)
         })
       );
 
       let series = map.series.push(am5map.MapPointSeries.new(root, {}));
-      setPointSeries(series); // Save reference to pointSeries for updates
+      setPointSeries(series);
 
       series.bullets.push((root, series, dataItem) => {
         let value = values.values[dataItem.dataContext.title];
       
         let color = value === 0 
-          ? am5.color(0x777777)
+          ? am5.color(0x8B8A85)
           : am5.Color.interpolate(
               value / 100,
-              am5.color(0x888888),
-              am5.color(0x355446)
+              am5.color(0xC0D8C3),
+              am5.color(0x6B8E6F)
             );
       
         let container = am5.Container.new(root, {});
-        let radius = 15 + (value / 100) * 40;
+        let radius = 20 + (value / 100) * 35;
       
         container.children.push(
           am5.Circle.new(root, {
             radius: radius,
             fill: color,
+            tooltipText: "{title}: {value}%"
           })
         );
       
         container.children.push(
           am5.Label.new(root, {
             text: `${value}%`,
-            fill: am5.color(0xffffff),
-            fontWeight: "400",
+            fill: am5.color(0xFFFFFF),
+            fontWeight: "600",
+            fontSize: 13,
             centerX: am5.p50,
             centerY: am5.p50,
           })
@@ -97,17 +103,20 @@ const MapChart = () => {
         }))
       );
 
+      // Zoom to fit all content
+      map.goHome(0);
+
       return () => {
         root.dispose();
       };
     }
-  }, [values, isLoading]);  // Run when values are set and loading is complete
+  }, [values, isLoading]);
 
   const updateValues = (newValues) => {
     setData(prevData =>
       prevData.map((d, i) => ({
         ...d,
-        value: newValues[i] || d.value // Update only if new value exists
+        value: newValues[i] || d.value
       }))
     );
 
@@ -124,8 +133,17 @@ const MapChart = () => {
 
   return (
     <div>
-      <div id="chartdiv" style={{ width: "100%", height: "50vw" }}></div>
-      {isLoading && <div>Loading...</div>}  {/* Optional loading indicator */}
+      <div id="chartdiv" style={{ width: "100%", height: "100%", minHeight: "450px" }}></div>
+      {isLoading && (
+        <div style={{ 
+          position: "absolute", 
+          top: "50%", 
+          left: "50%", 
+          transform: "translate(-50%, -50%)" 
+        }}>
+          <div className="spinner"></div>
+        </div>
+      )}
     </div>
   );
 };

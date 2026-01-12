@@ -19,8 +19,8 @@ function LandingPage() {
                 <RegularButton label="Profile"/>
                 </Link>
                 <Link to="/">
-                {/* DAILY QUEST BUTTON HEREEEEEEEEEEEEEEEEEEEE*/}
-                <FancyButton label="Daily Quest" targetpage="test.html" />
+                {/* QUEST BUTTON HEREEEEEEEEEEEEEEEEEEEE*/}
+                <FancyButton label="Quests" targetpage="test.html" />
                 </Link>
                 <Link to="/">
                 <RegularButton label="Logout" />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../logo.PNG';
+import logo from '../logo.png';
 import '../App.css';
 import '../styles/Home.css';
 import MapChart from '../mainPageComponents/Map';
@@ -22,7 +22,7 @@ function Home() {
   const features = [
     {
       icon: '🎯',
-      title: 'Daily Challenges',
+      title: 'Challenges',
       description: 'New location-based puzzles every day to test your geography knowledge'
     },
     {
@@ -53,12 +53,12 @@ function Home() {
               <span className="gradient-text"> Geography Puzzles</span>
             </h1>
             <p className="hero-subtitle">
-              Master geography while having fun! Solve daily location-based word puzzles,
+              Master geography while having fun! Solve location-based word puzzles,
               explore continents, and compete with players worldwide.
             </p>
             <div className="hero-buttons">
               <a href="/signup" className="cta-primary">
-                🚀 Start Your Journey
+                Start Your Journey
               </a>
               <a href="/login" className="cta-secondary">
                 Login
@@ -122,7 +122,7 @@ function Home() {
           <div className="step">
             <div className="step-number">2</div>
             <h3>Solve Puzzles</h3>
-            <p>Complete daily Connections puzzles about different regions</p>
+            <p>Complete Connections puzzles about different regions</p>
           </div>
           <div className="step">
             <div className="step-number">3</div>
@@ -142,7 +142,7 @@ function Home() {
         <h2>Ready to Become a Geography Master?</h2>
         <p>Join thousands of explorers discovering the world through puzzles</p>
         <a href="/signup" className="cta-primary large">
-          Get Started Free 🌟
+          Get Started Now
         </a>
       </section>
 

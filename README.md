@@ -4,11 +4,11 @@ A gamified geography learning platform that helps users explore and discover pla
 
 ## Overview
 
-Deerography combines education with entertainment by presenting users with location-based "Connections" puzzles. Users solve daily challenges related to their local region and progressively unlock knowledge about different continents. The application tracks user progress through an interactive world map visualization.
+Deerography combines education with entertainment by presenting users with location-based "Connections" puzzles. Users solve  challenges related to their local region and progressively unlock knowledge about different continents. The application tracks user progress through an interactive world map visualization.
 
 ## Features
 
-- **Daily Quest System**: Location-specific word puzzles similar to NYT Connections
+- **Quest System**: Location-specific word puzzles similar to NYT Connections
 - **Progress Tracking**: Visual representation of exploration progress across continents
 - **Interactive Maps**: Built with amCharts5 for engaging geographic visualizations
 - **User Authentication**: Secure login and signup with session management
@@ -90,7 +90,7 @@ The frontend will run on `http://localhost:3000`
 
 ### Playing the Game
 1. Log in with your credentials
-2. Click "Daily Quest" to access today's puzzle
+2. Click "Quests" to access puzzles
 3. Group words into 4 categories of 4 words each
 4. You have 4 mistakes allowed per puzzle
 5. Complete puzzles to increase your continent exploration percentage

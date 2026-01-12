@@ -1,9 +1,9 @@
 .profile-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
-  min-height: calc(100vh - 80px);
-  background: linear-gradient(135deg, #e9ebe1 0%, #dee6be 100%);
+  padding: 3rem 2rem;
+  min-height: calc(100vh - 70px);
+  background: #fafaf9;
 }
 
 .profile-loading {
@@ -12,94 +12,102 @@
   align-items: center;
   justify-content: center;
   min-height: 60vh;
-  gap: 20px;
+  gap: 1.5rem;
 }
 
+/* Profile Header - Clean & Modern */
 .profile-header {
   background: white;
-  border-radius: 20px;
-  padding: 40px;
-  margin-bottom: 30px;
+  border-radius: 12px;
+  padding: 3rem;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
-  gap: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  gap: 2rem;
+  border: 1px solid #e5e5e5;
 }
 
 .profile-avatar {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #638877, #253a2f);
+  background: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
 }
 
 .avatar-text {
-  font-size: 48px;
+  font-size: 42px;
   color: white;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .profile-info h1 {
-  margin: 0 0 10px 0;
-  color: #393b35;
-  font-size: 36px;
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 .profile-email {
-  color: #6c757d;
-  margin: 0 0 15px 0;
+  color: #737373;
+  margin: 0 0 1rem 0;
   font-size: 16px;
 }
 
 .profile-badges {
   display: flex;
-  gap: 10px;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
 .badge {
-  background: #e9ebe1;
-  padding: 8px 16px;
-  border-radius: 20px;
+  background: #fafaf9;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: #638877;
+  color: #1a1a1a;
+  border: 1px solid #e5e5e5;
 }
 
+/* Profile Grid */
 .profile-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
+  gap: 2rem;
 }
 
 .profile-section {
   background: white;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2.5rem;
+  border: 1px solid #e5e5e5;
 }
 
 .profile-section h2 {
-  margin: 0 0 20px 0;
-  color: #393b35;
-  font-size: 24px;
+  margin: 0 0 1.5rem 0;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
 }
 
+/* Stats List */
 .stats-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
 }
 
 .stat-row {
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f5f5f4;
 }
 
 .stat-row:last-child {
@@ -107,158 +115,174 @@
 }
 
 .stat-row span {
-  color: #6c757d;
+  color: #737373;
+  font-size: 15px;
 }
 
 .stat-row strong {
-  color: #638877;
-  font-size: 18px;
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 600;
 }
 
+/* Achievements */
 .achievements-grid {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
 }
 
 .achievement-card {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: #f8f9fa;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fafaf9;
   border-radius: 10px;
-  transition: transform 0.3s ease;
+  border: 1px solid #f5f5f4;
+  transition: all 0.2s ease;
 }
 
 .achievement-card:hover {
-  transform: translateX(5px);
+  border-color: #e5e5e5;
 }
 
 .achievement-icon {
-  font-size: 36px;
-  min-width: 50px;
+  font-size: 32px;
+  min-width: 45px;
 }
 
 .achievement-info h4 {
-  margin: 0 0 5px 0;
-  color: #393b35;
+  margin: 0 0 0.25rem 0;
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .achievement-info p {
   margin: 0;
-  color: #6c757d;
+  color: #737373;
   font-size: 14px;
 }
 
 .no-achievements {
   text-align: center;
-  color: #6c757d;
-  padding: 20px;
+  color: #737373;
+  padding: 2rem;
+  font-size: 15px;
 }
 
+/* Account Settings */
 .edit-button {
-  background: #638877;
+  background: #1a1a1a;
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .edit-button:hover {
-  background: #253a2f;
-  transform: translateY(-2px);
+  background: #000000;
 }
 
 .password-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1.25rem;
 }
 
 .password-form label {
   font-weight: 600;
-  color: #393b35;
-  margin-bottom: 5px;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
   display: block;
+  font-size: 14px;
 }
 
 .password-form input {
   width: 100%;
-  padding: 12px;
-  border: 2px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e5e5;
   border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
 }
 
 .password-form input:focus {
   outline: none;
-  border-color: #638877;
+  border-color: #1a1a1a;
 }
 
 .button-group {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .save-button, .cancel-button {
   flex: 1;
-  padding: 12px;
+  padding: 0.75rem;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .save-button {
-  background: #638877;
+  background: #1a1a1a;
   color: white;
 }
 
 .save-button:hover {
-  background: #253a2f;
+  background: #000000;
 }
 
 .cancel-button {
-  background: #e0e0e0;
-  color: #393b35;
+  background: white;
+  color: #1a1a1a;
+  border: 1px solid #e5e5e5;
 }
 
 .cancel-button:hover {
-  background: #d0d0d0;
+  border-color: #d4d4d4;
 }
 
 .success-msg {
-  color: #28a745;
-  background: #d4edda;
-  padding: 12px;
+  color: #16a34a;
+  background: #f0fdf4;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
-  border: 1px solid #c3e6cb;
+  border: 1px solid #bbf7d0;
+  font-size: 14px;
 }
 
 .error-msg {
-  color: #dc3545;
-  background: #f8d7da;
-  padding: 12px;
+  color: #dc2626;
+  background: #fef2f2;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
-  border: 1px solid #f5c6cb;
+  border: 1px solid #fecaca;
+  font-size: 14px;
 }
 
 @media (max-width: 768px) {
   .profile-header {
     flex-direction: column;
     text-align: center;
+    padding: 2rem;
   }
 
   .profile-grid {
     grid-template-columns: 1fr;
+  }
+
+  .profile-container {
+    padding: 2rem 1rem;
   }
 }

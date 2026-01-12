@@ -5,7 +5,7 @@ const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState('');
-  const [filter, setFilter] = useState('total'); // 'total' or continent name
+  const [filter, setFilter] = useState('total');
 
   useEffect(() => {
     const getCookie = (name) => {
@@ -41,11 +41,11 @@ const Leaderboard = () => {
     }
   };
 
-  const getRankSuffix = (rank) => {
-    if (rank === 1) return '🥇';
-    if (rank === 2) return '🥈';
-    if (rank === 3) return '🥉';
-    return `#${rank}`;
+  const getRankDisplay = (rank) => {
+    if (rank === 1) return { emoji: '🥇', text: '#1' };
+    if (rank === 2) return { emoji: '🥈', text: '#2' };
+    if (rank === 3) return { emoji: '🥉', text: '#3' };
+    return { emoji: null, text: `#${rank}` };
   };
 
   if (loading) {
@@ -62,8 +62,8 @@ const Leaderboard = () => {
   return (
     <div className="leaderboard-container">
       <div className="leaderboard-header">
-        <h1>🏆 Global Leaderboard</h1>
-        <p>Compete with explorers from around the world!</p>
+        <h1>Global Leaderboard</h1>
+        <p>Compete with explorers from around the world</p>
       </div>
 
       <div className="filter-section">
@@ -71,51 +71,51 @@ const Leaderboard = () => {
           className={filter === 'total' ? 'filter-btn active' : 'filter-btn'}
           onClick={() => setFilter('total')}
         >
-          🌍 Total Score
+          Total Score
         </button>
         <button 
           className={filter === 'North America' ? 'filter-btn active' : 'filter-btn'}
           onClick={() => setFilter('North America')}
         >
-          🦅 North America
+          North America
         </button>
         <button 
           className={filter === 'South America' ? 'filter-btn active' : 'filter-btn'}
           onClick={() => setFilter('South America')}
         >
-          🦜 South America
+          South America
         </button>
         <button 
           className={filter === 'Europe' ? 'filter-btn active' : 'filter-btn'}
           onClick={() => setFilter('Europe')}
         >
-          🏰 Europe
+          Europe
         </button>
         <button 
           className={filter === 'Asia' ? 'filter-btn active' : 'filter-btn'}
           onClick={() => setFilter('Asia')}
         >
-          🐼 Asia
+          Asia
         </button>
         <button 
           className={filter === 'Africa' ? 'filter-btn active' : 'filter-btn'}
           onClick={() => setFilter('Africa')}
         >
-          🦁 Africa
+          Africa
         </button>
         <button 
           className={filter === 'Oceania' ? 'filter-btn active' : 'filter-btn'}
           onClick={() => setFilter('Oceania')}
         >
-          🦘 Oceania
+          Oceania
         </button>
       </div>
 
       <div className="leaderboard-table">
         <div className="table-header">
-          <div className="rank-col">Rank</div>
-          <div className="player-col">Player</div>
-          <div className="score-col">Score</div>
+          <div className="rank-header">Rank</div>
+          <div className="player-header">Player</div>
+          <div className="score-header">Score</div>
         </div>
 
         {sortedBoard.length === 0 ? (
@@ -123,29 +123,45 @@ const Leaderboard = () => {
             <p>No leaderboard data yet. Be the first to climb the ranks! 🚀</p>
           </div>
         ) : (
-          sortedBoard.map((player, index) => (
-            <div 
-              key={player.username} 
-              className={`table-row ${player.username === currentUser ? 'current-user' : ''} ${index < 3 ? 'top-three' : ''}`}
-            >
-              <div className="rank-col">
-                <span className="rank-badge">{getRankSuffix(index + 1)}</span>
-              </div>
-              <div className="player-col">
-                <div className="player-avatar">{player.username.charAt(0).toUpperCase()}</div>
-                <div className="player-info">
-                  <span className="player-name">{player.username}</span>
-                  {player.username === currentUser && <span className="you-badge">You</span>}
+          <div className="table-body">
+            {sortedBoard.map((player, index) => {
+              const rank = index + 1;
+              const rankDisplay = getRankDisplay(rank);
+              const isCurrentUser = player.username === currentUser;
+              const isTopThree = rank <= 3;
+              
+              return (
+                <div 
+                  key={player.username} 
+                  className={`table-row ${isCurrentUser ? 'current-user' : ''} ${isTopThree ? 'top-three' : ''}`}
+                >
+                  <div className="rank-cell">
+                    {rankDisplay.emoji && (
+                      <span className="rank-medal">{rankDisplay.emoji}</span>
+                    )}
+                    <span className="rank-number">{rankDisplay.text}</span>
+                  </div>
+                  
+                  <div className="player-cell">
+                    <div className="player-avatar">
+                      {player.username.charAt(0).toUpperCase()}
+                    </div>
+                    <div className="player-details">
+                      <span className="player-name">{player.username}</span>
+                      {isCurrentUser && <span className="you-badge">You</span>}
+                    </div>
+                  </div>
+                  
+                  <div className="score-cell">
+                    <span className="score-value">
+                      {filter === 'total' ? player.totalScore : (player.continentScores[filter] || 0)}
+                    </span>
+                    <span className="score-label">pts</span>
+                  </div>
                 </div>
-              </div>
-              <div className="score-col">
-                <span className="score-value">
-                  {filter === 'total' ? player.totalScore : (player.continentScores[filter] || 0)}
-                </span>
-                <span className="score-label">points</span>
-              </div>
-            </div>
-          ))
+              );
+            })}
+          </div>
         )}
       </div>
 

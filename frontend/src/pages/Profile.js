@@ -145,7 +145,7 @@ const Profile = () => {
 
       <div className="profile-grid">
         <div className="profile-section">
-          <h2>📊 Statistics</h2>
+          <h2>Statistics</h2>
           <div className="stats-list">
             <div className="stat-row">
               <span>Total Puzzles Completed:</span>
@@ -167,7 +167,7 @@ const Profile = () => {
         </div>
 
         <div className="profile-section">
-          <h2>🏆 Achievements</h2>
+          <h2>Achievements</h2>
           <div className="achievements-grid">
             {getAchievements().length > 0 ? (
               getAchievements().map((achievement, idx) => (
@@ -180,13 +180,13 @@ const Profile = () => {
                 </div>
               ))
             ) : (
-              <p className="no-achievements">Complete puzzles to unlock achievements! 🎯</p>
+              <p className="no-achievements">Complete puzzles to unlock achievements!</p>
             )}
           </div>
         </div>
 
         <div className="profile-section">
-          <h2>🔒 Account Settings</h2>
+          <h2>Account Settings</h2>
           {!editing ? (
             <button className="edit-button" onClick={() => setEditing(true)}>
               Change Password

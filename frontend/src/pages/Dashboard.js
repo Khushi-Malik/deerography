@@ -54,7 +54,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
-        <h1>Welcome back, {username}! 🌍</h1>
+        <h1>Welcome back, {username}!</h1>
         <p>Continue your journey around the world</p>
       </div>
 
@@ -128,7 +128,7 @@ const Dashboard = () => {
           className="cta-button"
           onClick={() => window.location.href = '/connections'}
         >
-          🎮 Start Daily Quest
+          Start Quests
         </button>
       </div>
     </div>

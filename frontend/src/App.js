@@ -44,7 +44,7 @@ function Navigation() {
     }}>
       <Link to="/" style={{ textDecoration: 'none' }}>
         <h2 style={{ color: '#fff', margin: 0, fontSize: '24px', fontWeight: 'bold' }}>
-          🦌 Deerography
+          Deerography
         </h2>
       </Link>
       
@@ -62,7 +62,7 @@ function Navigation() {
               <button className="nav-button">Dashboard</button>
             </Link>
             <Link to="/connections">
-              <button className="nav-button primary">Daily Quest</button>
+              <button className="nav-button primary">Quest</button>
             </Link>
             <Link to="/leaderboard">
               <button className="nav-button">Leaderboard</button>

@@ -1,93 +1,142 @@
 .connections-app {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #e9ebe1 0%, #dee6be 100%);
-  padding: 20px;
+  min-height: calc(100vh - 70px);
+  background: #fafaf9;
+  padding: 2rem 1rem;
 }
 
-.loading-container {
+.loading-container, .error-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
-  gap: 20px;
+  min-height: 60vh;
+  gap: 1.5rem;
 }
 
-.loading-container p {
-  font-size: 18px;
-  color: #393b35;
-  font-weight: 600;
+.loading-container p, .error-container p {
+  font-size: 16px;
+  color: #737373;
 }
 
+.error-container h2 {
+  font-size: 42px;
+  margin: 0 0 1rem 0;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+/* Puzzle Controls - Minimal Design */
 .puzzle-controls {
   max-width: 800px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 2rem auto;
   background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
   display: flex;
-  gap: 20px;
+  gap: 1rem;
   align-items: flex-end;
   flex-wrap: wrap;
 }
 
 .control-group {
   flex: 1;
-  min-width: 180px;
+  min-width: 160px;
 }
 
 .control-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #393b35;
-  font-size: 14px;
+  color: #1a1a1a;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .control-group select {
   width: 100%;
-  padding: 12px;
-  border: 2px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e5e5;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 15px;
   background: white;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  color: #1a1a1a;
+  font-weight: 500;
 }
 
 .control-group select:focus {
   outline: none;
-  border-color: #638877;
+  border-color: #1a1a1a;
+}
+
+.control-group select:hover {
+  border-color: #d4d4d4;
 }
 
 .generate-btn {
-  background: linear-gradient(135deg, #638877, #253a2f);
+  background: #1a1a1a;
   color: white;
   border: none;
-  padding: 12px 30px;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(99, 136, 119, 0.3);
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
-.generate-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 136, 119, 0.4);
+.generate-btn:hover:not(:disabled) {
+  background: #000000;
 }
 
-.generate-btn:active {
-  transform: translateY(0);
+.generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.retry-btn {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retry-btn:hover {
+  background: #000000;
+}
+
+/* Game Wrapper */
+.wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.game-wrapper {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
 }
 
 @media (max-width: 768px) {
+  .connections-app {
+    padding: 1.5rem 0.75rem;
+  }
+
   .puzzle-controls {
     flex-direction: column;
     align-items: stretch;
+    padding: 1.25rem;
   }
 
   .control-group {
@@ -97,50 +146,8 @@
   .generate-btn {
     width: 100%;
   }
-}
 
-.error-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  padding: 40px;
-  text-align: center;
-}
-
-.error-container h2 {
-  font-size: 48px;
-  margin: 0 0 20px 0;
-  color: #393b35;
-}
-
-.error-container p {
-  font-size: 18px;
-  color: #6c757d;
-  margin: 0 0 30px 0;
-}
-
-.retry-btn {
-  background: linear-gradient(135deg, #638877, #253a2f);
-  color: white;
-  border: none;
-  padding: 15px 40px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(99, 136, 119, 0.3);
-}
-
-.retry-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 136, 119, 0.4);
-}
-
-.generate-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none !important;
+  .game-wrapper {
+    padding: 1.5rem;
+  }
 }
